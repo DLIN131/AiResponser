@@ -2,16 +2,16 @@ import axios from 'axios'
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 import { Configuration, OpenAIApi } from 'openai'
-const OPENAI_API_KEY = "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"
+const OPENAI_API_KEY = "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"
 
 const form = document.querySelector("form")
 const chatContainer = document.querySelector("#chat_container")
 
-const configuration = new Configuration({
-  apiKey: OPENAI_API_KEY,
-})
+// const configuration = new Configuration({
+//   apiKey: OPENAI_API_KEY,
+// })
 
-const openai = new OpenAIApi(configuration)
+// const openai = new OpenAIApi(configuration)
 
 
 
@@ -74,7 +74,6 @@ const client = axios.create({
 })
 
 
-
 async function usingOpenaiApi(prompt){
   const params = {
     model: "text-davinci-003",
@@ -88,7 +87,7 @@ async function usingOpenaiApi(prompt){
 
   try {
     const response = await client.post('https://api.openai.com/v1/completions',params)
-
+    console.log(response);
     return response.data.choices[0].text
       
   } catch (error) {

@@ -112,7 +112,7 @@ const handleSubmit = async (e) =>{
 
   const messageDiv = document.getElementById(uniqueId)
   loader(messageDiv)
-  //從server端fetch資料
+  //使用OPEN_API抓資料
   const response = await usingOpenaiApi(data.get('prompt'))
   clearInterval(loadInterval)
   messageDiv.innerHTML = ''
